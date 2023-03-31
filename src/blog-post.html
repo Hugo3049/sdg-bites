@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../output.css" rel="stylesheet" />
+    <link href="style2.css" rel="stylesheet" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./images/svg/SDG Bites Favicon.svg"
+    />
+    <script src="./script.js" defer></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
+    <header class="bg-primary-color sticky top-0 z-20 relative">
+      <svg
+        class="hidden sm:inline absolute inset-0 -z-10 h-full w-full stroke-sky-500/30 [mask-image:radial-gradient(100%_100%_at_middle_middle,white,transparent)]"
+        aria-hidden="true"
+      >
+        <defs>
+          <pattern
+            id="0787a7c5-978c-4f66-83c7-11c213f99cb8"
+            width="100"
+            height="72"
+            x="50%"
+            y="-1"
+            patternUnits="userSpaceOnUse"
+          >
+            <path d="M.5 200V.5H200" fill="none" />
+          </pattern>
+        </defs>
+        <rect
+          width="100%"
+          height="100%"
+          stroke-width="0"
+          fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb8)"
+        />
+      </svg>
+      <div
+        class="w-full text-gray-700 dark-mode:text-gray-200 dark-mode:bg-gray-800"
+      >
+        <div
+          x-data="{ open: false }"
+          class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
+        >
+          <div class="p-4 flex flex-row items-center justify-between">
+            <img
+              src="./images/svg/SDG Bites Favicon.svg"
+              class="w-10"
+              alt="sdg-bites"
+            />
+            <button
+              class="md:hidden rounded-lg focus:outline-none focus:shadow-outline"
+              @click="open = !open"
+            >
+              <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                <path
+                  x-show="!open"
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+                <path
+                  x-show="open"
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <nav
+            :class="{'flex': open, 'hidden': !open}"
+            class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row"
+          >
+            <a
+              class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:text-secondary-color focus:outline-none focus:shadow-outline"
+              href="#"
+              >Blog</a
+            >
+            <a
+              class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:text-secondary-color focus:outline-none focus:shadow-outline"
+              href="#"
+              >Portfolio</a
+            >
+            <a
+              class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:text-secondary-color focus:shadow-outline"
+              href="#"
+              >About</a
+            >
+            <a
+              class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-secondary-color focus:text-gray-900 hover:text-secondary-color focus:outline-none focus:shadow-outline"
+              href="#"
+              >Contact</a
+            >
+            <div
+              @click.away="open = false"
+              class="relative"
+              x-data="{ open: false }"
+            >
+              <div
+                x-show="open"
+                x-transition:enter="transition ease-out duration-100"
+                x-transition:enter-start="transform opacity-0 scale-95"
+                x-transition:enter-end="transform opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-75"
+                x-transition:leave-start="transform opacity-100 scale-100"
+                x-transition:leave-end="transform opacity-0 scale-95"
+                class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48"
+              >
+                <div
+                  class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800"
+                >
+                  <a
+                    class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                    href="#"
+                    >Link #1</a
+                  >
+                  <a
+                    class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:text-secondary-color focus:outline-none focus:shadow-outline"
+                    href="#"
+                    >Link #2</a
+                  >
+                  <a
+                    class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:text-secondary-color focus:outline-none focus:shadow-outline"
+                    href="#"
+                    >Link #3</a
+                  >
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main class="bg-primary-color">
+      <div class="flex flex-col items-center justify-center px-5">
+        <svg
+          class="absolute inset-0 z-10 h-full w-full stroke-sky-500/30 [mask-image:radial-gradient(100%_100%_at_middle_middle,white,transparent)]"
+          aria-hidden="true"
+        >
+          <defs>
+            <pattern
+              id="0787a7c5-978c-4f66-83c7-11c213f99cb7"
+              width="100"
+              height="100"
+              x="50%"
+              y="-1"
+              patternUnits="userSpaceOnUse"
+            >
+              <path d="M.5 200V.5H200" fill="none" />
+            </pattern>
+          </defs>
+          <rect
+            width="100%"
+            height="100%"
+            stroke-width="0"
+            fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
+          />
+        </svg>
+        <!-- Goals that are used -->
+        <div class="flex justify-center mr-6">
+          <h3 class="p-2 text-2xl font-semibold text-center">
+            Goals that are used
+          </h3>
+        </div>
+        <div class="flex justify-center row-auto mt-2 mb-10">
+          <a
+            class="lg:w-60 md:w-36 bg-red-800 text-white p-3 rounded-md mr-2"
+            href="https://sdgs.un.org/goals/goal8"
+            target="_blank"
+            ><button>8: DECENT WORK AND ECONOMIC GROWTH</button></a
+          >
+          <a
+            class="lg:w-60 md:w-36 bg-orange-600 text-white p-3 rounded-md"
+            href="https://sdgs.un.org/goals/goal9"
+            target="_blank"
+            ><button>9: INDUSTRY, INNOVATION AND INFRASTRUTURE</button></a
+          >
+        </div>
+        <!-- Image and Title section -->
+        <div class="z-10 flex flex-col items-center justify-center">
+          <img
+            class="w-2/5 pb-4 rounded-lg bite-2"
+            src="./images/blog-section/climate.jpg"
+            alt="clean-water"
+          />
+          <p class="text-center">SDG BITES, Hugo - Vrijdag 24 maart 2023</p>
+          <h1 class="text-3xl font-bold text-center p-6">
+            Groep studenten gaan naar Ierland
+          </h1>
+        </div>
+        <!-- Text area -->
+        <div class="flex flex-col items-center text-center gap-10">
+          <p class="font-normal sm:w-2/5">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet
+            beatae nihil aliquid facere dolor. Eaque nam vitae animi assumenda
+            illo voluptatum iste provident! Vitae error delectus ipsa, illo
+            accusamus ad impedit odit ex repudiandae ab repellat provident
+            recusandae est fugit saepe? Fugiat blanditiis fuga id. Beatae, unde.
+            Esse libero repellat pariatur voluptates praesentium maxime iste
+            sequi. Sed, dolores inventore. Reiciendis labore, explicabo vitae
+            eveniet unde tenetur, assumenda et ipsam consectetur non tempore
+            laborum, repellat aspernatur cumque! Magni, asperiores repudiandae
+            ratione libero molestiae dicta quaerat corrupti eligendi facere
+            voluptates dolore expedita, eos laborum, beatae iste. Ipsa ea a
+            omnis magnam quas?
+          </p>
+          <iframe
+            class="w-1/2 h-1/2 sm:w-3/5 sm:h-3/5 md:w-[720px] md:h-[360px]"
+            width="720"
+            height="360"
+            src="https://www.youtube.com/embed/E67ln5yJtyE"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+          <p class="font-normal sm:w-2/5">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet
+            beatae nihil aliquid facere dolor. Eaque nam vitae animi assumenda
+            illo voluptatum iste provident! Vitae error delectus ipsa, illo
+            accusamus ad impedit odit ex repudiandae ab repellat provident
+            recusandae est fugit saepe? Fugiat blanditiis fuga id. Beatae, unde.
+            Esse libero repellat pariatur voluptates praesentium maxime iste
+            sequi. Sed, dolores inventore. Reiciendis labore, explicabo vitae
+            eveniet unde tenetur, assumenda et ipsam consectetur non tempore
+            laborum, repellat aspernatur cumque! Magni, asperiores repudiandae
+            ratione libero molestiae dicta quaerat corrupti eligendi facere
+            voluptates dolore expedita, eos laborum, beatae iste. Ipsa ea a
+            omnis magnam quas?
+          </p>
+          <img
+            class="masked"
+            src="./images/pexels-nout-gons-378570.jpg"
+            alt=""
+          />
+        </div>
+
+        <!-- Subject -->
+        <div class="flex justify-center">
+          <button class="p-2 border-2 border-orange-500/75 rounded-md">
+            <img class="mx-auto" src="./images/mortarboard-fill.svg" alt="" />
+            School activities
+          </button>
+        </div>
+        <!-- I have read button -->
+        <div class="flex justify-center mt-5">
+          <button
+            id="readButton"
+            class="p-3 rounded-md hover:animate-pulse bg-green-700"
+          >
+            I have read this article
+          </button>
+        </div>
+        <!-- Share -->
+        <div class="flex justify-center mt-5">
+          <p>Share this article</p>
+        </div>
+        <div class="flex justify-center p-2">
+          <button class="p-4">
+            <img
+              class="scale-150 hover:animate-ping"
+              src="./images/twitter.svg"
+              alt="Twitter"
+            />
+          </button>
+          <button class="p-4">
+            <img
+              class="scale-150 hover:animate-ping"
+              src="./images/envelope.svg"
+              alt="Mail"
+            />
+          </button>
+          <button class="p-4">
+            <img
+              class="scale-150 hover:animate-ping"
+              src="./images/facebook.svg"
+              alt="Facebook"
+            />
+          </button>
+          <button class="p-4">
+            <img
+              class="scale-150 hover:animate-ping"
+              src="./images/instagram.svg"
+              alt="Instagram"
+            />
+          </button>
+          <button class="p-4">
+            <img
+              class="scale-150 hover:animate-ping"
+              src="./images/whatsapp.svg"
+              alt="Whatsapp"
+            />
+          </button>
+          <button class="p-4">
+            <img
+              class="scale-150 hover:animate-ping"
+              src="./images/share-fill.svg"
+              alt="Copy link"
+            />
+          </button>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
