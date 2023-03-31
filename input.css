@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.masked {
+    background-image: url("/dist/images/pexels-kelly-2382681.jpg");
+    background-size: cover;
+    -webkit-mask-image: url("/dist/images/kruimels.png");
+    mask-image: url("/dist/images/kruimels.png");
+    mask-size: cover;
+    -webkit-mask-size: cover;
+}
